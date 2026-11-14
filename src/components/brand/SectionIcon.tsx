@@ -153,28 +153,25 @@ const glyphs: Record<SectionId, (c: { main: string; deep: string }) => ReactNode
 };
 
 /**
- * A section's icon: the animated Lottie icon on a white tile. `still` renders
- * the static vector tile instead (no script, no motion).
+ * A section's icon on its coloured tile. Sections that have a Lordicon file
+ * show it animated (recoloured cream); the others show the vector glyph.
  */
-export function SectionIcon({ id, size = 96, className, still }: { id: SectionId; size?: number; className?: string; priority?: boolean; still?: boolean }) {
+export function SectionIcon({ id, size = 96, className }: { id: SectionId; size?: number; className?: string; priority?: boolean }) {
   const c = palette[id];
-  if (!still) {
-    return (
-      <span className={cn("relative inline-block shrink-0 rounded-[28%] bg-white", className)} style={{ width: size, height: size }}>
-        <span className="absolute inset-[7%]">
-          <LordIcon src={animatedIcons[id]} size="100%" />
-        </span>
-      </span>
-    );
-  }
+  const animated = animatedIcons[id];
   return (
-    <span className={cn("inline-block shrink-0", className)} style={{ width: size, height: size }}>
+    <span className={cn("relative inline-block shrink-0", className)} style={{ width: size, height: size }}>
       <svg viewBox="0 0 96 96" width="100%" height="100%" aria-hidden focusable="false" className="block overflow-visible">
         <rect x="6" y="12" width="84" height="80" rx="27" fill={c.deep} />
         <rect x="6" y="6" width="84" height="80" rx="27" fill={c.main} />
         <path d="M15 31C17 19 26 13 38 12" fill="none" stroke="#fff" strokeOpacity="0.35" strokeWidth="4.5" strokeLinecap="round" />
-        {glyphs[id](c)}
+        {animated ? null : glyphs[id](c)}
       </svg>
+      {animated ? (
+        <span className="absolute inset-x-[11%] top-[8%] aspect-square">
+          <LordIcon src={animated} color={id === "competitions" ? INK : CREAM} size="100%" />
+        </span>
+      ) : null}
     </span>
   );
 }

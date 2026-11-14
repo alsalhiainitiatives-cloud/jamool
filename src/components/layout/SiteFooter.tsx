@@ -55,7 +55,13 @@ export function SiteFooter() {
           <p>
             منصة تابعة لـ{owner.name}، {owner.place}.
           </p>
-          <p>© {new Date().getFullYear()} جمّول. جميع الحقوق محفوظة.</p>
+          <p>
+            © {new Date().getFullYear()} جمّول. جميع الحقوق محفوظة. الأيقونات المتحركة من{" "}
+            <a href="https://lordicon.com/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-cream">
+              Lordicon
+            </a>
+            .
+          </p>
         </div>
       </div>
     </footer>
