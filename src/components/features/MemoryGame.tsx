@@ -11,18 +11,19 @@ import { Glyph } from "@/components/ui/Glyph";
 import { useToast } from "@/components/ui/Toast";
 import { characters } from "@/data/characters";
 import { sections } from "@/data/sections";
-import { characterImages, sectionIcons, type Asset } from "@/lib/brand-assets";
+import { SectionIcon } from "@/components/brand/SectionIcon";
+import { characterImages, type Asset, type SectionId } from "@/lib/brand-assets";
 import { cn } from "@/lib/cn";
 import { completeActivity } from "@/lib/progress";
 import { sample, shuffle } from "@/lib/random";
 
-type Face = { id: string; label: string; img: Asset };
+type Face = { id: string; label: string; img?: Asset; section?: SectionId };
 type Card = { key: number; face: Face };
 type LevelId = "easy" | "medium" | "hard";
 
 const faces: Face[] = [
   ...characters.map((c) => ({ id: c.id, label: c.name, img: characterImages[c.id] })),
-  ...sections.filter((s) => s.id !== "ai").map((s) => ({ id: `icon-${s.id}`, label: s.name, img: sectionIcons[s.id] })),
+  ...sections.filter((s) => s.id !== "ai").map((s) => ({ id: `icon-${s.id}`, label: s.name, section: s.id })),
 ];
 
 const levels: Record<LevelId, { pairs: number; grid: string; label: string }> = {
@@ -141,7 +142,11 @@ export function MemoryGame() {
                     )}
                   >
                     <span className="relative block size-full">
-                      <Image src={card.face.img.src} alt="" fill sizes="160px" className="object-contain" />
+                      {card.face.img ? (
+                        <Image src={card.face.img.src} alt="" fill sizes="160px" className="object-contain" />
+                      ) : (
+                        <SectionIcon id={card.face.section!} size={160} className="size-full!" />
+                      )}
                     </span>
                   </span>
                 </button>

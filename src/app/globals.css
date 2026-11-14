@@ -198,3 +198,16 @@
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+@theme {
+  --animate-drift: drift 38s ease-in-out infinite alternate;
+  --animate-sun: sunpulse 7s ease-in-out infinite;
+  @keyframes drift {
+    from { transform: translateX(-4vw); }
+    to { transform: translateX(5vw); }
+  }
+  @keyframes sunpulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.035); }
+  }
+}
