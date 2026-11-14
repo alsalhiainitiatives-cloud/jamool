@@ -26,7 +26,7 @@ export function SiteHeader() {
   const isActive = (href: string) => (href === "/" ? pathname === "/" : !href.includes("#") && pathname.startsWith(href));
 
   return (
-    <header className="sticky top-0 z-40 bg-paper/95 shadow-[0_2px_0_rgb(31_42_92/0.06)] backdrop-blur-sm">
+    <header className="sticky top-0 z-40 surface bg-paper shadow-[0_3px_0_rgb(14_21_53/0.18)]">
       <div className="container-page flex h-[4.5rem] items-center gap-3 lg:h-20">
         <Link href="/" aria-label="جمّول، الصفحة الرئيسية" className="-my-2 shrink-0 transition-transform duration-200 hover:scale-105">
           <Logo height={64} priority />
@@ -40,7 +40,7 @@ export function SiteHeader() {
               aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
                 "rounded-full px-5 py-2.5 font-display text-base font-bold transition-colors",
-                isActive(item.href) ? "bg-navy text-cream" : "text-navy hover:bg-cream",
+                isActive(item.href) ? "bg-navy text-cream" : "text-ink hover:bg-cream",
               )}
             >
               {item.label}
@@ -52,7 +52,7 @@ export function SiteHeader() {
           <Link
             href="/achievements"
             aria-label={`نجومي: ${stars}`}
-            className="flex min-h-11 items-center gap-1.5 rounded-full bg-cream px-4 font-display font-bold text-navy transition-colors hover:bg-sand"
+            className="flex min-h-11 items-center gap-1.5 rounded-full bg-cream px-4 font-display font-bold text-ink transition-colors hover:bg-sand"
           >
             <Glyph name="star" size={20} className="text-amber" />
             <span suppressHydrationWarning>{stars}</span>
@@ -84,7 +84,7 @@ export function SiteHeader() {
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cn(
                     "flex min-h-14 items-center justify-between rounded-md px-5 font-display text-lg font-bold",
-                    isActive(item.href) ? "bg-navy text-cream" : "bg-white text-navy",
+                    isActive(item.href) ? "bg-navy text-cream" : "bg-white text-ink",
                   )}
                 >
                   {item.label}

@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import type { SectionId } from "@/lib/brand-assets";
+import { animatedIcons, animatedIconsReady } from "@/data/animated-icons";
 import { cn } from "@/lib/cn";
+import { LordIcon } from "./LordIcon";
 
 /**
  * Vector icon set for the eight sections: one geometric language
@@ -153,6 +155,14 @@ const glyphs: Record<SectionId, (c: { main: string; deep: string }) => ReactNode
 /** A section's icon as an inline vector tile (always crisp, never cropped). */
 export function SectionIcon({ id, size = 96, className }: { id: SectionId; size?: number; className?: string; priority?: boolean }) {
   const c = palette[id];
+  if (animatedIconsReady) {
+    const icon = animatedIcons[id];
+    return (
+      <span className={cn("inline-block shrink-0 rounded-[28%] bg-white p-[9%]", className)} style={{ width: size, height: size }}>
+        <LordIcon src={icon.src!} colors={icon.colors} size="100%" />
+      </span>
+    );
+  }
   return (
     <span className={cn("inline-block shrink-0", className)} style={{ width: size, height: size }}>
       <svg viewBox="0 0 96 96" width="100%" height="100%" aria-hidden focusable="false" className="block overflow-visible">

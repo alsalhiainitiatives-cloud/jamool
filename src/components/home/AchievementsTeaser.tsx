@@ -15,7 +15,7 @@ export function AchievementsTeaser() {
 
   return (
     <section className="container-page py-16 sm:py-20">
-      <div className="relative overflow-hidden rounded-2xl bg-navy px-6 py-10 text-cream sm:px-10 lg:px-14 lg:py-14">
+      <div className="relative overflow-hidden rounded-2xl bg-navy ring-2 ring-white/10 px-6 py-10 text-cream sm:px-10 lg:px-14 lg:py-14">
         <Sparkle size={26} className="absolute end-[8%] top-8 animate-twinkle text-saffron" />
         <Sparkle size={14} className="absolute end-[30%] top-14 animate-twinkle text-cream/60 [animation-delay:1.4s]" />
         <Sparkle size={18} className="absolute start-[42%] top-6 animate-twinkle text-cream/50 [animation-delay:2.2s]" />

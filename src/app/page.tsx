@@ -1,4 +1,3 @@
-import { SaduBand } from "@/components/brand/Decor";
 import { AchievementsTeaser } from "@/components/home/AchievementsTeaser";
 import { Adventures } from "@/components/home/Adventures";
 import { Friends } from "@/components/home/Friends";
@@ -9,7 +8,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <SaduBand />
       <SectionsWorld />
       <Adventures />
       <Friends />

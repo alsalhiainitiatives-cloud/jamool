@@ -14,7 +14,7 @@ export function BadgeMedal({ badge, earned, onDark, preview }: { badge: Badge; e
       >
         <SectionIcon id={badge.section} size={60} className={earned ? undefined : onDark ? "opacity-60 grayscale" : "opacity-40 grayscale"} />
       </span>
-      <span className={cn("font-display text-sm font-bold leading-tight", onDark ? "text-cream" : "text-navy")}>{badge.name}</span>
+      <span className={cn("font-display text-sm font-bold leading-tight", onDark ? "text-cream" : "text-ink")}>{badge.name}</span>
       <span className={cn("text-xs leading-snug", onDark ? "text-cream/70" : "text-ink-soft")}>{earned && !preview ? "حصلت عليها!" : badge.hint}</span>
     </div>
   );

@@ -44,7 +44,7 @@ function ToolButton({ icon, label, active, ...rest }: { icon: GlyphName; label: 
       {...rest}
       className={cn(
         "grid size-12 shrink-0 place-items-center rounded-full transition-all duration-150 active:scale-90 disabled:opacity-35",
-        active ? "bg-navy text-cream shadow-[0_4px_0_#0e1535]" : "bg-white text-navy ring-2 ring-navy/10 hover:bg-accent-soft",
+        active ? "bg-navy text-cream shadow-[0_4px_0_#0e1535]" : "bg-white text-ink ring-2 ring-navy/10 hover:bg-accent-soft",
       )}
     >
       <Glyph name={icon} />
@@ -221,14 +221,14 @@ export function ArtStudio() {
 
       <div className="order-1 flex min-w-0 flex-col gap-4 rounded-xl bg-accent-soft p-4 lg:order-2 lg:w-52">
         <div>
-          <p className="mb-2 font-display text-sm font-bold text-accent-deep">الأداة</p>
+          <p className="mb-2 font-display text-sm font-bold text-accent-text">الأداة</p>
           <div className="flex gap-2">
             <ToolButton icon="brush" label="فرشاة" active={tool === "brush"} aria-pressed={tool === "brush"} onClick={() => setTool("brush")} />
             <ToolButton icon="eraser" label="ممحاة" active={tool === "eraser"} aria-pressed={tool === "eraser"} onClick={() => setTool("eraser")} />
           </div>
         </div>
         <div>
-          <p className="mb-2 font-display text-sm font-bold text-accent-deep">الحجم</p>
+          <p className="mb-2 font-display text-sm font-bold text-accent-text">الحجم</p>
           <div className="flex gap-2" role="radiogroup" aria-label="حجم الفرشاة">
             {brushSizes.map((b) => (
               <button
@@ -246,7 +246,7 @@ export function ArtStudio() {
           </div>
         </div>
         <div>
-          <p className="mb-2 font-display text-sm font-bold text-accent-deep">اللون</p>
+          <p className="mb-2 font-display text-sm font-bold text-accent-text">اللون</p>
           <div className="flex flex-wrap gap-2.5 p-1 lg:grid lg:grid-cols-3" role="radiogroup" aria-label="لون الفرشاة">
             {palette.map((p) => {
               const active = color === p.hex && tool === "brush";

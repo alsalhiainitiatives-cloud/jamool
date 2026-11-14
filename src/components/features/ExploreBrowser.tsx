@@ -33,10 +33,10 @@ export function ExploreBrowser() {
             >
               <SectionIcon id={a.section} size={96} className="transition-transform duration-500 ease-[var(--ease-bounce)] group-hover:rotate-6 group-hover:scale-110" />
               <span className="min-w-0 flex-1">
-                <span className="font-display text-sm font-bold text-accent-deep">{a.kind}</span>
-                <span className="block font-display text-2xl font-bold leading-snug text-navy">{a.title}</span>
+                <span className="font-display text-sm font-bold text-accent-text">{a.kind}</span>
+                <span className="block font-display text-2xl font-bold leading-snug text-ink">{a.title}</span>
                 <span className="block text-ink-soft">{a.blurb}</span>
-                <span className="mt-2 inline-flex items-center gap-1 font-display font-bold text-accent-deep">
+                <span className="mt-2 inline-flex items-center gap-1 font-display font-bold text-accent-text">
                   {a.cta}
                   <Glyph name="forward" size={16} className="transition-transform group-hover:-translate-x-1" />
                 </span>

@@ -13,11 +13,11 @@ const base =
 const variants: Record<Variant, string> = {
   primary:
     "bg-saffron text-navy shadow-[0_5px_0_#d9942a] hover:bg-[#ffcf5c] hover:-translate-y-0.5 hover:shadow-[0_7px_0_#d9942a] active:shadow-[0_2px_0_#d9942a]",
-  navy: "bg-navy text-cream shadow-[0_5px_0_#0e1535] hover:bg-[#2a3772] hover:-translate-y-0.5 hover:shadow-[0_7px_0_#0e1535] active:shadow-[0_2px_0_#0e1535]",
+  navy: "bg-navy text-cream ring-2 ring-white/15 shadow-[0_5px_0_#0e1535] hover:bg-[#2a3772] hover:-translate-y-0.5 hover:shadow-[0_7px_0_#0e1535] active:shadow-[0_2px_0_#0e1535]",
   accent:
     "bg-accent-deep text-white shadow-[0_5px_0_rgb(31_42_92/0.28)] hover:-translate-y-0.5 hover:shadow-[0_7px_0_rgb(31_42_92/0.28)] active:shadow-[0_2px_0_rgb(31_42_92/0.28)] hover:brightness-110",
   soft: "bg-white text-navy shadow-[0_5px_0_rgb(31_42_92/0.14)] ring-2 ring-navy/10 hover:-translate-y-0.5 hover:shadow-[0_7px_0_rgb(31_42_92/0.14)] active:shadow-[0_2px_0_rgb(31_42_92/0.14)]",
-  ghost: "text-navy hover:bg-navy/8 active:translate-y-0",
+  ghost: "text-ink hover:bg-ink/10 active:translate-y-0",
 };
 
 const sizes: Record<Size, string> = {

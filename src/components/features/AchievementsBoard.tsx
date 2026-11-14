@@ -30,7 +30,7 @@ export function AchievementsBoard() {
               <Glyph name={s.icon} size={28} />
             </span>
             <div className="flex flex-col">
-              <dd className="font-display text-5xl font-extrabold leading-none text-navy">{s.value}</dd>
+              <dd className="font-display text-5xl font-extrabold leading-none text-ink">{s.value}</dd>
               <dt className="font-display font-bold text-ink-soft">{s.label}</dt>
             </div>
           </div>
@@ -67,7 +67,7 @@ export function AchievementsBoard() {
                 <div className="min-w-0 flex-1">
                   <p className="flex justify-between gap-2 font-display font-bold">
                     <span>{t.label}</span>
-                    <span className="text-accent-deep">
+                    <span className="text-accent-text">
                       {count} من {t.total}
                     </span>
                   </p>

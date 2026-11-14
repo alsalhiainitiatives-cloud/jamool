@@ -28,7 +28,7 @@ export default async function StoryPage({ params }: Props) {
   return (
     <SectionShell section="stories">
       <PageBody>
-        <Link href="/stories" className="mb-6 inline-flex min-h-11 items-center gap-1 rounded-full bg-accent-soft pe-5 ps-3 font-display text-sm font-bold text-navy hover:brightness-95">
+        <Link href="/stories" className="mb-6 inline-flex min-h-11 items-center gap-1 rounded-full bg-accent-soft pe-5 ps-3 font-display text-sm font-bold text-ink hover:brightness-95">
           <Glyph name="back" size={18} />
           كل القصص
         </Link>
@@ -49,7 +49,7 @@ export default async function StoryPage({ params }: Props) {
               ].map((m) => (
                 <div key={m.k} className="rounded-md bg-accent-soft px-4 py-2.5">
                   <dt className="text-xs text-ink-soft">{m.k}</dt>
-                  <dd className="font-display font-bold text-navy">{m.v}</dd>
+                  <dd className="font-display font-bold text-ink">{m.v}</dd>
                 </div>
               ))}
             </dl>

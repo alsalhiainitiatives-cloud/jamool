@@ -28,12 +28,12 @@ export default function SurahsPage() {
                   <span className="relative font-display text-lg font-extrabold text-white">{toIndic(s.number)}</span>
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block font-display text-2xl font-bold text-navy">سورة {s.name}</span>
+                  <span className="block font-display text-2xl font-bold text-ink">سورة {s.name}</span>
                   <span className="text-sm text-ink-soft">
                     {s.revelation} · {toIndic(s.ayahs.length)} آيات
                   </span>
                 </span>
-                <Glyph name="forward" size={20} className="text-accent-deep transition-transform group-hover:-translate-x-1" />
+                <Glyph name="forward" size={20} className="text-accent-text transition-transform group-hover:-translate-x-1" />
               </Link>
             </li>
           ))}

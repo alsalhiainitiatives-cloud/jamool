@@ -22,11 +22,11 @@ export function StoryBrowser() {
     <>
       <div className="grid gap-4 rounded-xl bg-accent-soft p-5 sm:p-6">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="w-16 font-display font-bold text-accent-deep">العمر</span>
+          <span className="w-16 font-display font-bold text-accent-text">العمر</span>
           <Chips label="تصفية حسب العمر" value={age} onChange={setAge} options={[{ value: "all", label: "الكل" }, ...ageBands]} />
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <span className="w-16 font-display font-bold text-accent-deep">الموضوع</span>
+          <span className="w-16 font-display font-bold text-accent-text">الموضوع</span>
           <Chips label="تصفية حسب الموضوع" value={topic} onChange={setTopic} options={[{ value: "all", label: "الكل" }, ...storyTopics]} />
         </div>
       </div>
@@ -70,8 +70,8 @@ export function StoryBrowser() {
                     </span>
                   ) : null}
                 </span>
-                <span className="mt-4 block font-display text-2xl font-bold leading-snug text-navy">{s.title}</span>
-                <span className="mt-1 flex flex-wrap gap-x-3 font-display text-sm font-bold text-accent-deep">
+                <span className="mt-4 block font-display text-2xl font-bold leading-snug text-ink">{s.title}</span>
+                <span className="mt-1 flex flex-wrap gap-x-3 font-display text-sm font-bold text-accent-text">
                   <span>{ageLabel(s.age)}</span>
                   <span>{topicLabel(s.topic)}</span>
                   <span>{s.minutes} دقائق</span>

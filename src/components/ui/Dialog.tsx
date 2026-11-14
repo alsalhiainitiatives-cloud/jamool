@@ -39,7 +39,7 @@ export function Dialog({
           type="button"
           onClick={onClose}
           aria-label="إغلاق"
-          className="absolute end-3 top-3 grid size-11 place-items-center rounded-full bg-white text-navy ring-2 ring-navy/10 hover:bg-accent-soft"
+          className="absolute end-3 top-3 grid size-11 place-items-center rounded-full bg-white text-ink ring-2 ring-navy/10 hover:bg-accent-soft"
         >
           <Glyph name="close" />
         </button>

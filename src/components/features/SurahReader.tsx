@@ -28,7 +28,7 @@ export function SurahReader({ surah }: { surah: Surah }) {
       </div>
 
       <div className="rounded-xl bg-white px-5 py-8 shadow-soft ring-2 ring-accent/25 sm:px-10 sm:py-12">
-        {surah.basmala ? <p className="mb-8 text-center font-quran text-3xl leading-[2.2] text-accent-deep sm:text-4xl">{surah.basmala}</p> : null}
+        {surah.basmala ? <p className="mb-8 text-center font-quran text-3xl leading-[2.2] text-accent-text sm:text-4xl">{surah.basmala}</p> : null}
         <ol className="grid gap-3">
           {surah.ayahs.map((a) => {
             const hidden = practice && !revealed.includes(a.number);
@@ -37,11 +37,11 @@ export function SurahReader({ surah }: { surah: Surah }) {
                 <span className={cn("transition-[filter,opacity] duration-300", hidden && "select-none opacity-40 blur-[9px]")} aria-hidden={hidden}>
                   {a.text}
                 </span>{" "}
-                <span className="whitespace-nowrap text-accent-deep">﴿{toIndic(a.number)}﴾</span>
+                <span className="whitespace-nowrap text-accent-text">﴿{toIndic(a.number)}﴾</span>
               </>
             );
             return (
-              <li key={a.number} lang="ar" className="font-quran text-[1.6rem] leading-[2.3] text-navy sm:text-[2.4rem]">
+              <li key={a.number} lang="ar" className="font-quran text-[1.6rem] leading-[2.3] text-ink sm:text-[2.4rem]">
                 {practice ? (
                   <button
                     type="button"

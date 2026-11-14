@@ -7,8 +7,6 @@
 @theme {
   --color-navy: #1f2a5c;
   --color-navy-deep: #151d45;
-  --color-ink: #1f2a5c;
-  --color-ink-soft: #4b5482;
   --color-cream: #fff4de;
   --color-paper: #fffaf0;
   --color-sand: #f6e2b8;
@@ -90,9 +88,16 @@
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
   --color-accent-deep: var(--accent-deep);
+  /* Context-aware text colours: light on the page, dark on light surfaces. */
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-accent-text: var(--accent-text);
+  --color-page: var(--page);
 }
 
 :root {
+  /* The one page colour: a royal indigo taken from the night sky of the logo. */
+  --page: #322f9e;
   --accent: #f5a63a;
   --accent-soft: #ffe9c2;
   --accent-deep: #9a5a06;
@@ -108,15 +113,34 @@
 [data-section="values"] { --accent: #5daa3a; --accent-soft: #e2f3d3; --accent-deep: #376f1d; }
 [data-section="competitions"] { --accent: #ffc43d; --accent-soft: #fff0c4; --accent-deep: #8a5b00; }
 
+/* Text context. Declared on [data-section] too so each section's tint is
+   picked up; light surfaces then switch everything inside them to dark ink. */
+:root,
+[data-section],
+:is(.bg-navy, .bg-navy-deep, .bg-accent-deep, .on-dark) {
+  --ink: #fff4de;
+  --ink-soft: #d4d7fb;
+  --accent-text: var(--accent-soft);
+}
+:is(.surface, .bg-white, .bg-paper, .bg-cream, .bg-sand, .bg-saffron, .bg-accent, .bg-accent-soft, [class*=" bg-[#"], [class^="bg-[#"]),
+:is(.surface, .bg-white, .bg-paper, .bg-cream, .bg-sand, .bg-saffron, .bg-accent, .bg-accent-soft, [class*=" bg-[#"], [class^="bg-[#"]) [data-section]:not(.bg-navy, .bg-accent-deep) {
+  --ink: #1f2a5c;
+  --ink-soft: #4b5482;
+  --accent-text: var(--accent-deep);
+}
+
 @layer base {
+  :is(.surface, .bg-white, .bg-paper, .bg-cream, .bg-sand, .bg-saffron, .bg-accent, .bg-accent-soft, [class*=" bg-[#"], [class^="bg-[#"]) {
+    color: var(--ink);
+  }
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
   }
   body {
-    background: var(--color-paper);
-    color: var(--color-ink);
+    background: var(--page);
+    color: var(--ink);
     font-family: var(--font-sans);
     font-size: var(--text-base);
     line-height: 1.75;
@@ -131,7 +155,7 @@
     inset: 0;
     z-index: 60;
     pointer-events: none;
-    opacity: 0.22;
+    opacity: 0.16;
     mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.42 0 0 0 0 0.25 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
   }
@@ -143,7 +167,7 @@
   }
   p { text-wrap: pretty; }
   :focus-visible {
-    outline: 3px solid var(--color-blue);
+    outline: 3px solid var(--color-saffron);
     outline-offset: 3px;
     border-radius: 0.5rem;
   }
@@ -173,7 +197,7 @@
     font-family: var(--font-display);
     font-weight: 700;
     font-size: var(--text-sm);
-    color: var(--color-accent-deep);
+    color: var(--accent-text);
     letter-spacing: 0;
   }
   .prose-kid p + p { margin-top: 1em; }

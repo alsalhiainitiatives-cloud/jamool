@@ -53,7 +53,7 @@ export default function DesignSystemPage() {
           <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
             {colors.map((c) => (
               <li key={c.token} className="overflow-hidden rounded-lg ring-2 ring-navy/8">
-                <span className={`flex h-24 items-end p-3 font-display font-bold ${c.dark ? "text-white" : "text-navy"}`} style={{ background: c.hex }}>
+                <span className={`flex h-24 items-end p-3 font-display font-bold ${c.dark ? "text-white" : "text-ink"}`} style={{ background: c.hex }}>
                   {c.name}
                 </span>
                 <span className="block bg-white px-3 py-2 text-xs" dir="ltr">

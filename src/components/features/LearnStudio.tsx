@@ -99,7 +99,7 @@ export function LearnStudio({ initialTab }: { initialTab: Tab }) {
                   onClick={() => setLetter(l)}
                   aria-label={`حرف ال${l.name}`}
                   className={cn(
-                    "grid aspect-square w-full place-items-center rounded-lg font-display text-4xl font-extrabold text-navy shadow-[0_5px_0_rgb(31_42_92/0.1)] transition-transform duration-200 ease-[var(--ease-bounce)] hover:-translate-y-1 hover:rotate-2 active:translate-y-1 sm:text-5xl",
+                    "grid aspect-square w-full place-items-center rounded-lg font-display text-4xl font-extrabold text-ink shadow-[0_5px_0_rgb(31_42_92/0.1)] transition-transform duration-200 ease-[var(--ease-bounce)] hover:-translate-y-1 hover:rotate-2 active:translate-y-1 sm:text-5xl",
                     tileColors[i % tileColors.length],
                   )}
                 >
@@ -117,7 +117,7 @@ export function LearnStudio({ initialTab }: { initialTab: Tab }) {
                   onClick={() => setNumber(n)}
                   aria-label={`الرقم ${n.name}`}
                   className={cn(
-                    "flex w-full flex-col items-center rounded-lg px-3 py-5 text-navy shadow-[0_5px_0_rgb(31_42_92/0.1)] transition-transform duration-200 ease-[var(--ease-bounce)] hover:-translate-y-1 active:translate-y-1",
+                    "flex w-full flex-col items-center rounded-lg px-3 py-5 text-ink shadow-[0_5px_0_rgb(31_42_92/0.1)] transition-transform duration-200 ease-[var(--ease-bounce)] hover:-translate-y-1 active:translate-y-1",
                     tileColors[i % tileColors.length],
                   )}
                 >
@@ -167,7 +167,7 @@ export function LearnStudio({ initialTab }: { initialTab: Tab }) {
         {letter ? (
           <div className="text-center">
             <p className="eyebrow">حرف ال{letter.name}</p>
-            <p className="font-display text-[9rem] font-extrabold leading-[1.2] text-accent-deep">{letter.char}</p>
+            <p className="font-display text-[9rem] font-extrabold leading-[1.2] text-accent-text">{letter.char}</p>
             <p className="font-display text-4xl font-bold">
               <span className="text-coral">{letter.word.charAt(0)}</span>
               {letter.word.slice(1)}
@@ -194,7 +194,7 @@ export function LearnStudio({ initialTab }: { initialTab: Tab }) {
         {number ? (
           <div className="flex flex-col items-center text-center">
             <p className="eyebrow">{number.name}</p>
-            <p className="font-display text-[9rem] font-extrabold leading-[1.1] text-accent-deep">{number.indic}</p>
+            <p className="font-display text-[9rem] font-extrabold leading-[1.1] text-accent-text">{number.indic}</p>
             <p className="mb-5 font-display text-2xl font-bold text-ink-soft" dir="ltr">
               {number.value}
             </p>

@@ -24,7 +24,7 @@ export default async function GamePage({ params }: Props) {
   return (
     <SectionShell section="games">
       <PageHero section="games" title={game.title} lead={game.blurb} back={{ href: "/games", label: "كل الألعاب" }}>
-        <ul className="flex flex-wrap gap-2 font-display text-sm font-bold text-accent-deep">
+        <ul className="flex flex-wrap gap-2 font-display text-sm font-bold text-accent-text">
           <li className="rounded-full bg-white px-4 py-1.5">{categoryLabel(game.category)}</li>
           <li className="rounded-full bg-white px-4 py-1.5">{game.ages}</li>
           {game.skills.map((s) => (

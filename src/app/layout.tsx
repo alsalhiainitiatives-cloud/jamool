@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: "منصة جمّول التعليمية الترفيهية للأطفال: قصص، ألعاب، حروف وأرقام، رسم وتلوين، وقيم جميلة.",
 };
 
-export const viewport: Viewport = { themeColor: "#FFF4DE" };
+export const viewport: Viewport = { themeColor: "#322F9E" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

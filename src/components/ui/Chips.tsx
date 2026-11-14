@@ -32,8 +32,8 @@ export function Chips<T extends string>({
             className={cn(
               "min-h-11 rounded-full px-5 font-display text-sm font-bold transition-colors duration-150",
               active
-                ? "bg-navy text-cream shadow-[0_4px_0_#0e1535]"
-                : "bg-white text-navy ring-2 ring-navy/10 hover:bg-accent-soft",
+                ? "bg-saffron text-navy shadow-[0_4px_0_#d9942a]"
+                : "bg-white text-ink ring-2 ring-navy/10 hover:bg-accent-soft",
             )}
           >
             {o.label}
@@ -69,7 +69,7 @@ export function Tabs<T extends string>({
             onClick={() => onChange(o.value)}
             className={cn(
               "min-h-12 shrink-0 rounded-full px-6 font-display text-base font-bold transition-colors duration-150",
-              active ? "bg-accent-deep text-white" : "text-navy hover:bg-accent-soft",
+              active ? "bg-accent-deep text-white" : "text-ink hover:bg-accent-soft",
             )}
           >
             {o.label}

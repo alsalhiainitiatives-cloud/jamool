@@ -30,7 +30,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
             role="status"
             className="pointer-events-auto flex max-w-md animate-pop items-center gap-3 rounded-full bg-navy py-3 ps-4 pe-6 font-display font-bold text-cream shadow-lift"
           >
-            <span className={`grid size-9 shrink-0 place-items-center rounded-full ${t.tone === "success" ? "bg-saffron text-navy" : "bg-white/15 text-cream"}`}>
+            <span className={`grid size-9 shrink-0 place-items-center rounded-full ${t.tone === "success" ? "bg-saffron text-ink" : "bg-white/15 text-cream"}`}>
               <Glyph name={t.tone === "success" ? "star" : "sparkle"} size={20} />
             </span>
             {t.message}

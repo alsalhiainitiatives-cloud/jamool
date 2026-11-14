@@ -26,7 +26,7 @@ function FooterList({ title, links }: { title: string; links: readonly { href: s
 export function SiteFooter() {
   const lineup = illustrations.friendsLineup;
   return (
-    <footer className="relative mt-24">
+    <footer className="relative mt-20">
       <div className="container-page relative z-10 -mb-[5.5%] flex justify-center">
         <Image
           src={lineup.src}

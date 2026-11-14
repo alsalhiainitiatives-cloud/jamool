@@ -52,13 +52,13 @@ export function StoryReader({ story }: { story: Story }) {
             </Button>
           ) : null}
           <div className="flex items-center rounded-full bg-white ring-2 ring-navy/10" role="group" aria-label="حجم الخط">
-            <button type="button" aria-label="تصغير الخط" disabled={size === 0} onClick={() => setSize(size - 1)} className="grid size-11 place-items-center rounded-full text-navy hover:bg-accent-soft disabled:opacity-30">
+            <button type="button" aria-label="تصغير الخط" disabled={size === 0} onClick={() => setSize(size - 1)} className="grid size-11 place-items-center rounded-full text-ink hover:bg-accent-soft disabled:opacity-30">
               <Glyph name="minus" size={18} />
             </button>
             <span aria-hidden className="px-1 font-display text-lg font-bold">
               أ
             </span>
-            <button type="button" aria-label="تكبير الخط" disabled={size === sizes.length - 1} onClick={() => setSize(size + 1)} className="grid size-11 place-items-center rounded-full text-navy hover:bg-accent-soft disabled:opacity-30">
+            <button type="button" aria-label="تكبير الخط" disabled={size === sizes.length - 1} onClick={() => setSize(size + 1)} className="grid size-11 place-items-center rounded-full text-ink hover:bg-accent-soft disabled:opacity-30">
               <Glyph name="plus" size={18} />
             </button>
           </div>
@@ -72,7 +72,7 @@ export function StoryReader({ story }: { story: Story }) {
             <Celebration />
             <Character id={story.hero} height={190} decorative />
             <h2 className="text-3xl">انتهت الحكاية!</h2>
-            <p className="max-w-md rounded-lg bg-accent-soft px-6 py-4 font-display text-xl font-bold text-accent-deep">{story.lesson}</p>
+            <p className="max-w-md rounded-lg bg-accent-soft px-6 py-4 font-display text-xl font-bold text-accent-text">{story.lesson}</p>
             <div className="mt-2 flex flex-wrap justify-center gap-3">
               <Button href="/stories">قصة أخرى</Button>
               <Button variant="soft" onClick={() => go(0)}>
@@ -83,10 +83,10 @@ export function StoryReader({ story }: { story: Story }) {
           </div>
         ) : (
           <div key={page} className="flex min-h-[26rem] animate-rise flex-col justify-center px-8 py-12 ps-12 sm:px-14 sm:ps-16">
-            <p className="mb-4 font-display text-sm font-bold text-accent-deep">
+            <p className="mb-4 font-display text-sm font-bold text-accent-text">
               صفحة {page + 1} من {total}
             </p>
-            <p className={cn("font-medium text-navy", sizes[size])} aria-live="polite">
+            <p className={cn("font-medium text-ink", sizes[size])} aria-live="polite">
               {story.pages[page]}
             </p>
           </div>

@@ -26,11 +26,11 @@ export function GameLibrary() {
                 className={cn(
                   "group flex h-full flex-col gap-3 p-7 transition-transform duration-300 ease-[var(--ease-bounce)] hover:-translate-y-1.5",
                   shapes[i % 4],
-                  ready ? "bg-accent-deep text-white" : "bg-white text-navy ring-2 ring-dashed ring-navy/20",
+                  ready ? "bg-accent-deep text-white" : "bg-white text-ink ring-2 ring-dashed ring-navy/20",
                 )}
               >
                 <span className="flex items-center justify-between gap-3">
-                  <span className={cn("rounded-full px-3 py-1 font-display text-sm font-bold", ready ? "bg-saffron text-navy" : "bg-cream text-ink-soft")}>{ready ? "جاهزة للعب" : "قيد الإعداد"}</span>
+                  <span className={cn("rounded-full px-3 py-1 font-display text-sm font-bold", ready ? "bg-saffron text-ink" : "bg-cream text-ink-soft")}>{ready ? "جاهزة للعب" : "قيد الإعداد"}</span>
                   <span className={cn("font-display text-sm font-bold", ready ? "text-white/85" : "text-ink-soft")}>
                     {categoryLabel(g.category)} · {g.ages}
                   </span>

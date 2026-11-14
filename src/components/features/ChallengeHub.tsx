@@ -26,7 +26,7 @@ export function ChallengeHub() {
           const done = progress.has(`challenge:${c.id}`);
           return (
             <li key={c.id} className={`flex flex-col gap-3 bg-accent-soft p-7 ${i % 2 ? "rounded-[2.5rem_0.75rem_2.5rem_2.5rem]" : "rounded-[0.75rem_2.5rem_2.5rem_2.5rem]"}`}>
-              <span className="flex flex-wrap items-center gap-2 font-display text-sm font-bold text-accent-deep">
+              <span className="flex flex-wrap items-center gap-2 font-display text-sm font-bold text-accent-text">
                 <span className="rounded-full bg-white px-3 py-1">تحدٍّ تدريبي</span>
                 <span>{c.ages}</span>
                 <span>{c.questions.length} أسئلة</span>

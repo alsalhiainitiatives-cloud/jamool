@@ -98,7 +98,7 @@ export function ZizouLab() {
         {state.status === "idle" ? (
           <div className="flex h-full flex-col items-center justify-center gap-3 text-center">
             <Character id="zizou" height={170} float decorative />
-            <p className="font-display text-xl font-bold text-navy">اختر ما يعجبك، ثم اضغط الزر!</p>
+            <p className="font-display text-xl font-bold text-ink">اختر ما يعجبك، ثم اضغط الزر!</p>
           </div>
         ) : null}
         {state.status === "loading" ? <LoadingState label="زيزو يركّب الفكرة…" /> : null}
@@ -112,9 +112,9 @@ export function ZizouLab() {
             <p className="eyebrow mb-2">{state.idea.kind === "story" ? "بداية قصتك" : "نشاط اليوم"}</p>
             {state.idea.kind === "story" ? (
               <>
-                <p className="font-display text-2xl font-bold leading-[1.8] text-navy sm:text-3xl sm:leading-[1.7]">{state.idea.text}</p>
+                <p className="font-display text-2xl font-bold leading-[1.8] text-ink sm:text-3xl sm:leading-[1.7]">{state.idea.text}</p>
                 <p className="mt-5 rounded-lg bg-white px-5 py-4 text-lg">
-                  <strong className="font-display text-accent-deep">سؤال زيزو: </strong>
+                  <strong className="font-display text-accent-text">سؤال زيزو: </strong>
                   {state.idea.question}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">

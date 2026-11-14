@@ -135,7 +135,7 @@ export function Quiz({
                     ? "bg-navy/5 text-navy/35"
                     : solved
                       ? "bg-navy/5 text-navy/40"
-                      : "bg-accent-soft text-navy shadow-[0_5px_0_rgb(31_42_92/0.12)] hover:-translate-y-0.5 active:translate-y-[3px] active:shadow-none",
+                      : "bg-accent-soft text-ink shadow-[0_5px_0_rgb(31_42_92/0.12)] hover:-translate-y-0.5 active:translate-y-[3px] active:shadow-none",
               )}
             >
               {opt}
@@ -157,7 +157,7 @@ export function Quiz({
             </Button>
           </div>
         ) : wrong.length > 0 ? (
-          <p className="animate-rise rounded-lg bg-cream px-5 py-4 text-center font-display text-lg font-bold text-navy">قريب جدًا! جرّب خيارًا آخر.</p>
+          <p className="animate-rise rounded-lg bg-cream px-5 py-4 text-center font-display text-lg font-bold text-ink">قريب جدًا! جرّب خيارًا آخر.</p>
         ) : null}
       </div>
     </div>

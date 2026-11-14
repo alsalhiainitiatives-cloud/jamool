@@ -33,7 +33,7 @@ export default function CompetitionsPage() {
           <ol className="mt-10 grid gap-5 md:grid-cols-3">
             {steps.map((s, i) => (
               <li key={s.title} className="rounded-lg bg-white p-6 ring-2 ring-navy/6">
-                <span className="grid size-11 place-items-center rounded-full bg-accent font-display text-xl font-extrabold text-navy">{i + 1}</span>
+                <span className="grid size-11 place-items-center rounded-full bg-accent font-display text-xl font-extrabold text-ink">{i + 1}</span>
                 <h3 className="mt-3 text-xl">{s.title}</h3>
                 <p className="mt-1 text-ink-soft">{s.text}</p>
               </li>

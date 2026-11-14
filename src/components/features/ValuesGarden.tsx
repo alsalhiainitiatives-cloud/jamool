@@ -61,7 +61,7 @@ function Lesson({ lesson, onDone }: { lesson: ValueLesson; onDone: () => void })
               }}
               className={cn(
                 "flex min-h-14 items-center justify-between gap-3 rounded-lg px-5 py-3 text-start font-display text-lg font-bold transition-all",
-                right ? "bg-leaf text-white" : off ? "bg-navy/5 text-navy/40" : "bg-accent-soft text-navy shadow-[0_4px_0_rgb(31_42_92/0.1)] hover:-translate-y-0.5 active:translate-y-0.5",
+                right ? "bg-leaf text-white" : off ? "bg-navy/5 text-navy/40" : "bg-accent-soft text-ink shadow-[0_4px_0_rgb(31_42_92/0.1)] hover:-translate-y-0.5 active:translate-y-0.5",
               )}
             >
               {c}
@@ -119,8 +119,8 @@ export function ValuesGarden() {
                   onClick={() => setActive(v)}
                   className="mt-2 flex min-h-14 flex-col items-center justify-center rounded-lg bg-white px-5 py-2 shadow-[0_5px_0_rgb(31_42_92/0.14)] transition-transform hover:-translate-y-1 active:translate-y-0.5"
                 >
-                  <span className="font-display text-xl font-extrabold text-navy">{v.name}</span>
-                  <span className="text-sm font-bold text-accent-deep">{grown ? "أزهرت · أعد النشاط" : "ازرع البذرة"}</span>
+                  <span className="font-display text-xl font-extrabold text-ink">{v.name}</span>
+                  <span className="text-sm font-bold text-accent-text">{grown ? "أزهرت · أعد النشاط" : "ازرع البذرة"}</span>
                 </button>
               </li>
             );

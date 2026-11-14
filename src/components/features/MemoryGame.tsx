@@ -81,7 +81,7 @@ export function MemoryGame() {
       <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
         <Chips label="مستوى اللعبة" value={level} onChange={(l) => (cards ? start(l) : setLevel(l))} options={(Object.keys(levels) as LevelId[]).map((l) => ({ value: l, label: levels[l].label }))} />
         {cards ? (
-          <p className="font-display text-lg font-bold text-navy" aria-live="polite">
+          <p className="font-display text-lg font-bold text-ink" aria-live="polite">
             المحاولات: {moves} · المطابقات: {matched.length} من {levels[level].pairs}
           </p>
         ) : null}

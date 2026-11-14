@@ -48,7 +48,7 @@ export function SpeechBubble({ children, className, tail = "bottom" }: { childre
   return (
     <span
       className={cn(
-        "relative inline-block rounded-[1.6rem] bg-white px-5 py-3 font-display text-base font-bold leading-snug text-navy shadow-soft ring-2 ring-navy/8",
+        "relative inline-block rounded-[1.6rem] bg-white px-5 py-3 font-display text-base font-bold leading-snug text-ink shadow-soft ring-2 ring-navy/8",
         className,
       )}
     >
