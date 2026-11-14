@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import { Character } from "@/components/brand/Character";
 import { Sparkle } from "@/components/brand/Decor";
+import { HeroVideo } from "./HeroVideo";
 import { Button } from "@/components/ui/Button";
 import { Glyph } from "@/components/ui/Glyph";
 import type { CharacterId } from "@/lib/brand-assets";
@@ -65,14 +66,16 @@ export function Hero() {
           </Button>
         </div>
 
-        {/* The five friends, poster style */}
-        <div className="relative mx-auto mt-8 h-[21rem] max-w-[26rem] sm:h-[26rem] sm:max-w-2xl lg:mt-10 lg:h-[31rem] lg:max-w-5xl">
+        {/* The five friends: a short looping clip on wide screens, the still line-up below. */}
+        <HeroVideo className="mx-auto -mt-8 hidden w-full max-w-5xl lg:block" />
+
+        <div className="relative mx-auto mt-8 h-[21rem] max-w-[26rem] sm:h-[26rem] sm:max-w-2xl lg:hidden">
           <span aria-hidden className="absolute bottom-[6%] left-1/2 aspect-square h-[92%] -translate-x-1/2 rounded-full bg-saffron" />
           <span aria-hidden className="absolute bottom-[6%] left-1/2 aspect-square h-[92%] -translate-x-1/2 scale-[1.16] rounded-full ring-2 ring-dashed ring-saffron/45" />
-          <Friend id="maha" delay={0.4} className="left-[-3%] h-[58%] sm:left-[2%] sm:h-[68%] lg:left-[0%] lg:h-[72%]" />
-          <Friend id="thaloob" delay={1.2} className="left-[12%] z-30 h-[35%] sm:left-[19%] sm:h-[44%] lg:left-[17%] lg:z-10 lg:h-[58%]" />
-          <Friend id="noor" delay={0.8} className="right-[9%] z-30 h-[29%] sm:right-[16%] sm:h-[38%] lg:right-[14%] lg:z-10 lg:h-[50%]" />
-          <Friend id="zizou" float delay={0} className="bottom-[42%]! right-[-2%] h-[28%] sm:right-[3%] sm:h-[34%] lg:bottom-[34%]! lg:right-[0%] lg:h-[38%]" />
+          <Friend id="maha" delay={0.4} className="left-[-3%] h-[58%] sm:left-[2%] sm:h-[68%]" />
+          <Friend id="thaloob" delay={1.2} className="left-[12%] z-30 h-[35%] sm:left-[19%] sm:h-[44%]" />
+          <Friend id="noor" delay={0.8} className="right-[9%] z-30 h-[29%] sm:right-[16%] sm:h-[38%]" />
+          <Friend id="zizou" float delay={0} className="bottom-[42%]! right-[-2%] h-[28%] sm:right-[3%] sm:h-[34%]" />
           <Friend id="jamool" delay={0} className="left-1/2 z-20 h-full -translate-x-1/2" />
         </div>
       </div>
