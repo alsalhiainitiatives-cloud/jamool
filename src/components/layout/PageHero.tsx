@@ -39,7 +39,7 @@ export function PageHero({
               <Glyph name="back" size={18} />
               {back?.label ?? "كل الأقسام"}
             </Link>
-            <Character id={who} height={118} priority animation="talking" className="md:hidden" />
+            <Character id={who} height={118} priority className="md:hidden" />
           </div>
           <div className="flex items-center gap-4">
             <SectionIcon id={section} size={84} priority className="hidden sm:inline-block" />
@@ -55,7 +55,7 @@ export function PageHero({
           <SpeechBubble tail="side" className="mb-28 max-w-52 animate-pop [animation-delay:400ms]">
             {greeting ?? s.greeting}
           </SpeechBubble>
-          <Character id={who} height={260} priority animation="talking" float={who === "zizou"} />
+          <Character id={who} height={260} priority float={who === "zizou"} />
         </div>
       </div>
     </div>

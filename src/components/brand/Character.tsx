@@ -1,8 +1,6 @@
 import Image from "next/image";
 import { characterImages, type CharacterId } from "@/lib/brand-assets";
 import { characterById } from "@/data/characters";
-import { PuppetCharacter } from "@/components/animation/PuppetCharacter";
-import type { PuppetAnimation } from "@/lib/animation/rig-types";
 import { cn } from "@/lib/cn";
 
 /**
@@ -18,7 +16,6 @@ export function Character({
   float,
   flip,
   sizes,
-  animation = "idle",
 }: {
   id: CharacterId;
   /** Rendered height in CSS pixels (width follows the artwork's ratio). */
@@ -30,12 +27,7 @@ export function Character({
   /** Mirror horizontally so the character faces the content. */
   flip?: boolean;
   sizes?: string;
-  /** Motion state, for characters that have an animated puppet (Jamool so far). */
-  animation?: PuppetAnimation;
 }) {
-  if (id === "jamool") {
-    return <PuppetCharacter character="jamool" animation={animation} size={height} decorative={decorative} className={cn("max-w-none shrink-0", flip && "-scale-x-100", className)} />;
-  }
   const img = characterImages[id];
   const ratio = img.width / img.height;
   return (

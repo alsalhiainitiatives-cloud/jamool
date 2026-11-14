@@ -83,7 +83,7 @@ export function Quiz({
     return (
       <div className="relative flex flex-col items-center gap-4 rounded-xl bg-accent-soft px-6 py-10 text-center" role="status">
         <Celebration />
-        <Character id={guide} height={170} decorative animation="happy" />
+        <Character id={guide} height={170} decorative />
         <h3 className="text-3xl">{finishTitle}</h3>
         <p className="flex gap-1" aria-label={`حصلت على ${finished} من 3 نجوم`}>
           {[1, 2, 3].map((n) => (
@@ -148,8 +148,7 @@ export function Quiz({
       <div aria-live="polite" className="mt-6 min-h-[4.5rem]">
         {solved ? (
           <div className="flex animate-rise flex-wrap items-center justify-between gap-4 rounded-lg bg-[#e7f5dc] px-5 py-3">
-            <Character id={guide} height={92} decorative animation="happy" className="-my-2" />
-            <p className="min-w-40 flex-1 font-display text-lg font-bold text-[#2f6418]">
+            <p className="font-display text-lg font-bold text-[#2f6418]">
               {praises[index % praises.length]} {q.explain ? <span className="font-sans text-base font-medium text-ink">{q.explain}</span> : null}
             </p>
             <Button variant="navy" onClick={next} autoFocus>
@@ -158,10 +157,7 @@ export function Quiz({
             </Button>
           </div>
         ) : wrong.length > 0 ? (
-          <div className="flex animate-rise items-center justify-center gap-4 rounded-lg bg-cream px-5 py-3">
-            <Character id={guide} height={92} decorative animation="sad" className="-my-2" />
-            <p className="font-display text-lg font-bold text-ink">قريب جدًا! جرّب خيارًا آخر.</p>
-          </div>
+          <p className="animate-rise rounded-lg bg-cream px-5 py-4 text-center font-display text-lg font-bold text-ink">قريب جدًا! جرّب خيارًا آخر.</p>
         ) : null}
       </div>
     </div>

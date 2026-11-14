@@ -33,7 +33,7 @@ function StatePanel({
       role={tone === "error" ? "alert" : undefined}
       className={`mx-auto flex max-w-xl flex-col items-center gap-4 rounded-xl px-6 py-10 text-center ${tone === "error" ? "bg-[#ffe7df]" : "bg-accent-soft"}`}
     >
-      <Character id={character} height={150} decorative animation={tone === "error" ? "sad" : "thinking"} />
+      <Character id={character} height={150} decorative />
       <h3 className="text-xl">{title}</h3>
       {children ? <div className="text-ink-soft">{children}</div> : null}
       {action}

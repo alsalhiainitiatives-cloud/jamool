@@ -7,6 +7,9 @@
  * opacity are animated.
  */
 .pp-root {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
   user-select: none;
 
   /* Default look: open eyes that blink, a smile, arms resting, standing. */
