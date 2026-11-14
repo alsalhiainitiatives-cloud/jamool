@@ -1,0 +1,396 @@
+/*
+ * Cut-out puppet animation (see PuppetCharacter.tsx).
+ *
+ * Every piece has `opacity: var(--pp-<slot>, 0)` and
+ * `animation: var(--pp-a-<slot>, none)` inline, so each state below only
+ * lists which pieces are shown and how they move. Only transform and
+ * opacity are animated.
+ */
+.pp-root {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  user-select: none;
+
+  /* Default look: open eyes that blink, a smile, arms resting, standing. */
+  --pp-tail: 1;
+  --pp-leg-l: 1;
+  --pp-leg-r: 1;
+  --pp-arm-l: 1;
+  --pp-arm-r: 1;
+  --pp-eyes-open: 1;
+  --pp-brows-neutral: 1;
+  --pp-mouth-smile: 1;
+
+  --pp-a-tail: pp-tail 3.2s ease-in-out infinite;
+  --pp-a-upper: pp-breathe 3.6s ease-in-out infinite;
+  --pp-a-head: pp-head-sway 6.4s ease-in-out infinite;
+  --pp-a-eyes-open: pp-blink-open 4.8s steps(1) infinite;
+  --pp-a-eyes-closed: pp-blink-closed 4.8s steps(1) infinite;
+}
+.pp-group {
+  position: absolute;
+  inset: 0;
+}
+.pp-piece {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+.pp-root[data-paused] * {
+  animation-play-state: paused !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pp-root * {
+    animation: none !important;
+  }
+}
+
+/* ---------- states ---------- */
+
+/* idle: breathing, blinking, and a glance to each side now and then */
+.pp-root[data-anim="idle"] {
+  --pp-a-eyes-open: pp-idle-open 9s steps(1) infinite;
+  --pp-a-eyes-closed: pp-idle-closed 9s steps(1) infinite;
+  --pp-a-eyes-left: pp-idle-left 9s steps(1) infinite;
+  --pp-a-eyes-right: pp-idle-right 9s steps(1) infinite;
+  --pp-a-brows-neutral: pp-brow-lift 9s ease-in-out infinite;
+}
+
+/* greeting: one arm waves, big smile, a little hop */
+.pp-root[data-anim="greeting"] {
+  --pp-arm-r: 0;
+  --pp-wave-r: 1;
+  --pp-a-wave-r: pp-wave-r 0.62s ease-in-out infinite;
+  --pp-brows-neutral: 0;
+  --pp-brows-raised: 1;
+  --pp-mouth-smile: 0;
+  --pp-mouth-laugh: 1;
+  --pp-a-all: pp-hop 2.4s ease-in-out infinite;
+  --pp-a-head: pp-head-tilt-wave 2.4s ease-in-out infinite;
+}
+
+/* talking: the mouth cycles through speech shapes while the head nods */
+.pp-root[data-anim="talking"] {
+  --pp-mouth-smile: 0;
+  --pp-a-mouth-smile: pp-talk-smile 1.3s steps(1) infinite;
+  --pp-a-mouth-ah: pp-talk-ah 1.3s steps(1) infinite;
+  --pp-a-mouth-oo: pp-talk-oo 1.3s steps(1) infinite;
+  --pp-a-mouth-eee: pp-talk-eee 1.3s steps(1) infinite;
+  --pp-a-head: pp-nod 1.3s ease-in-out infinite;
+  --pp-a-arm-r: pp-gesture-r 2.6s ease-in-out infinite;
+  --pp-a-brows-neutral: pp-brow-lift 2.6s ease-in-out infinite;
+}
+
+/* happy: both arms up, laughing eyes, bouncing */
+.pp-root[data-anim="happy"] {
+  --pp-arm-l: 0;
+  --pp-arm-r: 0;
+  --pp-wave-l: 1;
+  --pp-wave-r: 1;
+  --pp-a-wave-l: pp-wave-l 0.5s ease-in-out infinite;
+  --pp-a-wave-r: pp-wave-r 0.5s ease-in-out infinite;
+  --pp-eyes-open: 0;
+  --pp-a-eyes-open: none;
+  --pp-a-eyes-closed: none;
+  --pp-eyes-joy: 1;
+  --pp-brows-neutral: 0;
+  --pp-brows-raised: 1;
+  --pp-mouth-smile: 0;
+  --pp-mouth-laugh: 1;
+  --pp-a-all: pp-bounce 0.8s ease-in-out infinite;
+  --pp-a-tail: pp-tail 0.8s ease-in-out infinite;
+  --pp-a-head: pp-head-wobble 0.8s ease-in-out infinite;
+}
+
+/* jump: crouch, leap with the feet tucked, land with a squash */
+.pp-root[data-anim="jump"] {
+  --pp-arm-l: 0;
+  --pp-arm-r: 0;
+  --pp-wave-l: 1;
+  --pp-wave-r: 1;
+  --pp-a-wave-l: pp-jump-arm-l 1.8s ease-in-out infinite;
+  --pp-a-wave-r: pp-jump-arm-r 1.8s ease-in-out infinite;
+  --pp-mouth-smile: 0;
+  --pp-mouth-laugh: 1;
+  --pp-brows-neutral: 0;
+  --pp-brows-raised: 1;
+  --pp-a-all: pp-jump 1.8s cubic-bezier(0.4, 0, 0.3, 1) infinite;
+  --pp-a-leg-l: pp-jump-leg 1.8s steps(1) infinite;
+  --pp-a-leg-r: pp-jump-leg 1.8s steps(1) infinite;
+  --pp-a-toe-l: pp-jump-toe 1.8s steps(1) infinite;
+  --pp-a-toe-r: pp-jump-toe 1.8s steps(1) infinite;
+  --pp-a-tail: pp-tail 0.9s ease-in-out infinite;
+  --pp-a-head: none;
+}
+
+/* thinking: head tilted, eyes to the side, one brow up */
+.pp-root[data-anim="thinking"] {
+  --pp-eyes-open: 0;
+  --pp-a-eyes-open: none;
+  --pp-a-eyes-closed: pp-think-blink 4s steps(1) infinite;
+  --pp-eyes-left: 1;
+  --pp-a-eyes-left: pp-think-eyes 4s steps(1) infinite;
+  --pp-brows-neutral: 0;
+  --pp-brows-raised: 1;
+  --pp-mouth-smile: 0;
+  --pp-mouth-oo: 1;
+  --pp-a-head: pp-think 4s ease-in-out infinite;
+  --pp-a-tail: pp-tail 5s ease-in-out infinite;
+}
+
+/* surprised: a quick jolt, wide eyes, round mouth */
+.pp-root[data-anim="surprised"] {
+  --pp-eyes-open: 0;
+  --pp-a-eyes-open: none;
+  --pp-a-eyes-closed: none;
+  --pp-eyes-wide: 1;
+  --pp-brows-neutral: 0;
+  --pp-brows-raised: 1;
+  --pp-a-brows-raised: pp-brow-jolt 2.4s ease-out infinite;
+  --pp-mouth-smile: 0;
+  --pp-mouth-o: 1;
+  --pp-a-all: pp-jolt 2.4s ease-out infinite;
+  --pp-a-arm-l: pp-flinch-l 2.4s ease-out infinite;
+  --pp-a-arm-r: pp-flinch-r 2.4s ease-out infinite;
+  --pp-a-head: none;
+}
+
+/* sad / try again: a gentle droop, never scary */
+.pp-root[data-anim="sad"] {
+  --pp-eyes-open: 0;
+  --pp-a-eyes-open: none;
+  --pp-a-eyes-closed: none;
+  --pp-eyes-half: 1;
+  --pp-brows-neutral: 0;
+  --pp-brows-sad: 1;
+  --pp-mouth-smile: 0;
+  --pp-mouth-sad: 1;
+  --pp-a-head: pp-droop 4.2s ease-in-out infinite;
+  --pp-a-upper: pp-breathe 5s ease-in-out infinite;
+  --pp-a-tail: pp-tail-low 5s ease-in-out infinite;
+}
+
+/* sleeping: eyes shut, slow deep breathing */
+.pp-root[data-anim="sleeping"] {
+  --pp-eyes-open: 0;
+  --pp-a-eyes-open: none;
+  --pp-a-eyes-closed: none;
+  --pp-eyes-closed: 1;
+  --pp-mouth-smile: 0;
+  --pp-a-mouth-smile: pp-snore-in 5.4s steps(1) infinite;
+  --pp-a-mouth-oo: pp-snore-out 5.4s steps(1) infinite;
+  --pp-a-upper: pp-breathe-deep 5.4s ease-in-out infinite;
+  --pp-a-head: pp-doze 5.4s ease-in-out infinite;
+  --pp-a-tail: pp-tail-low 7s ease-in-out infinite;
+}
+
+/* walking on the spot: legs alternate, arms swing, body bobs */
+.pp-root[data-anim="walking"] {
+  --pp-a-leg-l: pp-step 0.9s ease-in-out infinite;
+  --pp-a-leg-r: pp-step 0.9s ease-in-out -0.45s infinite;
+  --pp-a-arm-l: pp-swing 0.9s ease-in-out -0.45s infinite;
+  --pp-a-arm-r: pp-swing 0.9s ease-in-out infinite;
+  --pp-a-all: pp-bob 0.45s ease-in-out infinite;
+  --pp-a-upper: pp-lean 0.9s ease-in-out infinite;
+  --pp-a-tail: pp-tail 0.9s ease-in-out infinite;
+  --pp-a-head: pp-head-wobble 0.9s ease-in-out infinite;
+}
+
+/* ---------- keyframes: body ---------- */
+
+@keyframes pp-breathe {
+  0%, 100% { transform: none; }
+  50% { transform: translateY(-0.35%) scale(1.01, 1.018); }
+}
+@keyframes pp-breathe-deep {
+  0%, 100% { transform: none; }
+  45%, 55% { transform: translateY(-0.6%) scale(1.02, 1.035); }
+}
+@keyframes pp-head-sway {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50% { transform: rotate(2.2deg); }
+}
+@keyframes pp-head-wobble {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes pp-head-tilt-wave {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(6deg); }
+}
+@keyframes pp-nod {
+  0%, 100% { transform: rotate(0); }
+  30% { transform: rotate(2.5deg) translateY(0.4%); }
+  65% { transform: rotate(-2deg); }
+}
+@keyframes pp-think {
+  0%, 100% { transform: rotate(7deg); }
+  50% { transform: rotate(10deg) translateY(0.3%); }
+}
+@keyframes pp-droop {
+  0%, 100% { transform: rotate(-5deg) translateY(1.2%); }
+  50% { transform: rotate(-8deg) translateY(1.8%); }
+}
+@keyframes pp-doze {
+  0%, 100% { transform: rotate(9deg) translateY(1%); }
+  50% { transform: rotate(11deg) translateY(1.8%); }
+}
+@keyframes pp-tail {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(9deg); }
+}
+@keyframes pp-tail-low {
+  0%, 100% { transform: rotate(-14deg); }
+  50% { transform: rotate(-9deg); }
+}
+@keyframes pp-wave-r {
+  0%, 100% { transform: rotate(-7deg); }
+  50% { transform: rotate(15deg); }
+}
+@keyframes pp-wave-l {
+  0%, 100% { transform: rotate(7deg); }
+  50% { transform: rotate(-15deg); }
+}
+@keyframes pp-gesture-r {
+  0%, 100% { transform: rotate(0); }
+  40% { transform: rotate(-16deg); }
+  70% { transform: rotate(-8deg); }
+}
+@keyframes pp-flinch-l {
+  0%, 30%, 100% { transform: none; }
+  12% { transform: rotate(22deg); }
+}
+@keyframes pp-flinch-r {
+  0%, 30%, 100% { transform: none; }
+  12% { transform: rotate(-22deg); }
+}
+@keyframes pp-swing {
+  0%, 100% { transform: rotate(11deg); }
+  50% { transform: rotate(-11deg); }
+}
+@keyframes pp-step {
+  0%, 100% { transform: rotate(0) translateY(0); }
+  25% { transform: rotate(-9deg) translateY(-7%); }
+  50% { transform: rotate(0) translateY(0); }
+  75% { transform: rotate(7deg) translateY(0); }
+}
+@keyframes pp-bob {
+  0%, 100% { transform: none; }
+  50% { transform: translateY(-1.1%); }
+}
+@keyframes pp-lean {
+  0%, 100% { transform: rotate(-1.6deg); }
+  50% { transform: rotate(1.6deg); }
+}
+@keyframes pp-hop {
+  0%, 24%, 100% { transform: none; }
+  6% { transform: scale(1.04, 0.95); }
+  13% { transform: translateY(-4.5%) scale(0.97, 1.04); }
+  20% { transform: scale(1.03, 0.97); }
+}
+@keyframes pp-bounce {
+  0%, 100% { transform: scale(1.05, 0.93); }
+  50% { transform: translateY(-6.5%) scale(0.96, 1.05); }
+}
+@keyframes pp-jump {
+  0%, 62%, 100% { transform: none; }
+  10% { transform: scale(1.08, 0.88); }
+  30% { transform: translateY(-17%) scale(0.94, 1.08); }
+  36% { transform: translateY(-17.5%) scale(0.98, 1.02); }
+  48% { transform: scale(1.1, 0.88); }
+  55% { transform: translateY(-1.5%) scale(0.98, 1.03); }
+}
+@keyframes pp-jump-arm-l {
+  0%, 62%, 100% { transform: rotate(20deg); }
+  10% { transform: rotate(34deg); }
+  30%, 36% { transform: rotate(-18deg); }
+  48% { transform: rotate(30deg); }
+}
+@keyframes pp-jump-arm-r {
+  0%, 62%, 100% { transform: rotate(-20deg); }
+  10% { transform: rotate(-34deg); }
+  30%, 36% { transform: rotate(18deg); }
+  48% { transform: rotate(-30deg); }
+}
+@keyframes pp-jump-leg {
+  0%, 46% { opacity: 1; }
+  16% { opacity: 0; }
+}
+@keyframes pp-jump-toe {
+  0%, 46% { opacity: 0; }
+  16% { opacity: 1; }
+}
+@keyframes pp-jolt {
+  0%, 34%, 100% { transform: none; }
+  5% { transform: scale(1.04, 0.95); }
+  13% { transform: translateY(-5%) scale(0.96, 1.06); }
+  24% { transform: scale(1.03, 0.97); }
+}
+
+/* ---------- keyframes: face (stepped swaps) ---------- */
+
+@keyframes pp-blink-open {
+  0%, 46%, 96% { opacity: 1; }
+  44%, 93% { opacity: 0; }
+}
+@keyframes pp-blink-closed {
+  0%, 46%, 96% { opacity: 0; }
+  44%, 93% { opacity: 1; }
+}
+@keyframes pp-idle-open {
+  0%, 24%, 62%, 86%, 97% { opacity: 1; }
+  22%, 50%, 74%, 95% { opacity: 0; }
+}
+@keyframes pp-idle-closed {
+  0%, 24%, 97% { opacity: 0; }
+  22%, 95% { opacity: 1; }
+}
+@keyframes pp-idle-left {
+  0%, 62% { opacity: 0; }
+  50% { opacity: 1; }
+}
+@keyframes pp-idle-right {
+  0%, 86% { opacity: 0; }
+  74% { opacity: 1; }
+}
+@keyframes pp-think-eyes {
+  0%, 52% { opacity: 1; }
+  48% { opacity: 0; }
+}
+@keyframes pp-think-blink {
+  0%, 52% { opacity: 0; }
+  48% { opacity: 1; }
+}
+@keyframes pp-brow-lift {
+  0%, 44%, 66%, 100% { transform: none; }
+  52%, 60% { transform: translateY(-9%); }
+}
+@keyframes pp-brow-jolt {
+  0%, 34%, 100% { transform: none; }
+  13% { transform: translateY(-22%); }
+}
+@keyframes pp-talk-smile {
+  0% { opacity: 1; }
+  18% { opacity: 0; }
+}
+@keyframes pp-talk-ah {
+  0%, 44% { opacity: 0; }
+  18%, 78% { opacity: 1; }
+}
+@keyframes pp-talk-oo {
+  0%, 60% { opacity: 0; }
+  44% { opacity: 1; }
+}
+@keyframes pp-talk-eee {
+  0%, 78% { opacity: 0; }
+  60% { opacity: 1; }
+}
+@keyframes pp-snore-in {
+  0% { opacity: 1; }
+  45% { opacity: 0; }
+}
+@keyframes pp-snore-out {
+  0% { opacity: 0; }
+  45% { opacity: 1; }
+}

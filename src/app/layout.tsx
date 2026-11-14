@@ -9,6 +9,7 @@ import "@fontsource/tajawal/arabic-700.css";
 import "@fontsource/tajawal/latin-500.css";
 import "@fontsource/amiri/arabic-400.css";
 import "./globals.css";
+import "@/components/animation/puppet.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { ToastProvider } from "@/components/ui/Toast";
