@@ -1,10 +1,7 @@
-import type { CSSProperties } from "react";
-import { Character } from "@/components/brand/Character";
 import { Sparkle } from "@/components/brand/Decor";
 import { HeroVideo } from "./HeroVideo";
 import { Button } from "@/components/ui/Button";
 import { Glyph } from "@/components/ui/Glyph";
-import type { CharacterId } from "@/lib/brand-assets";
 import { cn } from "@/lib/cn";
 
 const stars: [number, number, number, number, string][] = [
@@ -12,18 +9,6 @@ const stars: [number, number, number, number, string][] = [
   [29, 30, 10, 0.6, "text-saffron"], [71, 28, 10, 1.7, "text-cream"], [80, 9, 16, 2.9, "text-saffron"],
   [88, 40, 12, 0.3, "text-cream"], [95, 14, 22, 2.1, "text-cream"], [8, 70, 10, 1.4, "text-cream"], [93, 68, 12, 0.9, "text-saffron"],
 ];
-
-/** One friend standing in the line-up, with a soft ground shadow. */
-function Friend({ id, className, delay, float }: { id: CharacterId; className: string; delay: number; float?: boolean }) {
-  return (
-    <div className={cn("absolute bottom-0 flex flex-col items-center", className)}>
-      <div className={cn("h-full", float ? "animate-float" : "origin-bottom animate-wave")} style={{ animationDelay: `${delay}s` } as CSSProperties}>
-        <Character id={id} priority className="h-full w-auto" sizes="(min-width: 1024px) 340px, 170px" />
-      </div>
-      <span aria-hidden className="-mt-2 h-3 w-3/5 rounded-[50%] bg-navy-deep/45 blur-[6px]" />
-    </div>
-  );
-}
 
 export function Hero() {
   return (
@@ -66,18 +51,8 @@ export function Hero() {
           </Button>
         </div>
 
-        {/* The five friends: a short looping clip on wide screens, the still line-up below. */}
-        <HeroVideo className="mx-auto -mt-8 hidden w-full max-w-5xl lg:block" />
-
-        <div className="relative mx-auto mt-8 h-[21rem] max-w-[26rem] sm:h-[26rem] sm:max-w-2xl lg:hidden">
-          <span aria-hidden className="absolute bottom-[6%] left-1/2 aspect-square h-[92%] -translate-x-1/2 rounded-full bg-saffron" />
-          <span aria-hidden className="absolute bottom-[6%] left-1/2 aspect-square h-[92%] -translate-x-1/2 scale-[1.16] rounded-full ring-2 ring-dashed ring-saffron/45" />
-          <Friend id="maha" delay={0.4} className="left-[-3%] h-[58%] sm:left-[2%] sm:h-[68%]" />
-          <Friend id="thaloob" delay={1.2} className="left-[12%] z-30 h-[35%] sm:left-[19%] sm:h-[44%]" />
-          <Friend id="noor" delay={0.8} className="right-[9%] z-30 h-[29%] sm:right-[16%] sm:h-[38%]" />
-          <Friend id="zizou" float delay={0} className="bottom-[42%]! right-[-2%] h-[28%] sm:right-[3%] sm:h-[34%]" />
-          <Friend id="jamool" delay={0} className="left-1/2 z-20 h-full -translate-x-1/2" />
-        </div>
+        {/* The five friends as a short looping clip; edge to edge on small screens. */}
+        <HeroVideo className="ms-[calc(50%-min(50vw,32rem))] -mt-2 w-[min(100vw,64rem)] sm:-mt-6 lg:-mt-8" />
       </div>
     </section>
   );
