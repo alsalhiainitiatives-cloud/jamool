@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import type { SectionId } from "@/lib/brand-assets";
-import { animatedIcons, animatedIconsReady } from "@/data/animated-icons";
+import { animatedIcons } from "@/data/animated-icons";
 import { cn } from "@/lib/cn";
 import { LordIcon } from "./LordIcon";
 
@@ -152,14 +152,18 @@ const glyphs: Record<SectionId, (c: { main: string; deep: string }) => ReactNode
   ),
 };
 
-/** A section's icon as an inline vector tile (always crisp, never cropped). */
-export function SectionIcon({ id, size = 96, className }: { id: SectionId; size?: number; className?: string; priority?: boolean }) {
+/**
+ * A section's icon: the animated Lottie icon on a white tile. `still` renders
+ * the static vector tile instead (no script, no motion).
+ */
+export function SectionIcon({ id, size = 96, className, still }: { id: SectionId; size?: number; className?: string; priority?: boolean; still?: boolean }) {
   const c = palette[id];
-  if (animatedIconsReady) {
-    const icon = animatedIcons[id];
+  if (!still) {
     return (
-      <span className={cn("inline-block shrink-0 rounded-[28%] bg-white p-[9%]", className)} style={{ width: size, height: size }}>
-        <LordIcon src={icon.src!} colors={icon.colors} size="100%" />
+      <span className={cn("relative inline-block shrink-0 rounded-[28%] bg-white", className)} style={{ width: size, height: size }}>
+        <span className="absolute inset-[7%]">
+          <LordIcon src={animatedIcons[id]} size="100%" />
+        </span>
       </span>
     );
   }

@@ -4,8 +4,8 @@ import { createElement, useEffect } from "react";
 
 let defined = false;
 
-/** Thin wrapper around Lordicon's official <lord-icon> player (MIT). */
-export function LordIcon({ src, colors, size }: { src: string; colors?: string; size: number | string }) {
+/** Thin wrapper around the <lord-icon> Lottie player (@lordicon/element, MIT). */
+export function LordIcon({ src, size }: { src: string; size: number | string }) {
   useEffect(() => {
     if (defined) return;
     defined = true;
@@ -14,7 +14,6 @@ export function LordIcon({ src, colors, size }: { src: string; colors?: string; 
 
   return createElement("lord-icon", {
     src,
-    colors,
     trigger: "loop(2500)",
     loading: "lazy",
     "aria-hidden": "true",
