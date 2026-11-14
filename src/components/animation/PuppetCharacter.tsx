@@ -81,7 +81,7 @@ export function PuppetCharacter({
       aria-hidden={decorative || undefined}
       data-anim={animation}
       data-paused={paused || undefined}
-      className={cn("pp-root", className)}
+      className={cn("pp-root relative inline-block", className)}
       style={{ aspectRatio: `${rig.width} / ${rig.height}`, height: size }}
     >
       <div className="pp-group" style={group("all")}>

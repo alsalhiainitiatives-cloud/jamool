@@ -16,8 +16,8 @@ const stars: [number, number, number, number, string][] = [
 function Friend({ id, className, delay, float }: { id: CharacterId; className: string; delay: number; float?: boolean }) {
   return (
     <div className={cn("absolute bottom-0 flex flex-col items-center", className)}>
-      <div className={cn("h-full", float ? "animate-float" : "origin-bottom animate-wave")} style={{ animationDelay: `${delay}s` } as CSSProperties}>
-        <Character id={id} priority className="h-full w-auto" sizes="(min-width: 1024px) 340px, 170px" />
+      <div className={cn("h-full", id === "jamool" ? null : float ? "animate-float" : "origin-bottom animate-wave")} style={{ animationDelay: `${delay}s` } as CSSProperties}>
+        <Character id={id} priority animation="greeting" className="h-full w-auto" sizes="(min-width: 1024px) 340px, 170px" />
       </div>
       <span aria-hidden className="-mt-2 h-3 w-3/5 rounded-[50%] bg-navy-deep/45 blur-[6px]" />
     </div>

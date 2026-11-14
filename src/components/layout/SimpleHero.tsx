@@ -8,7 +8,7 @@ export function SimpleHero({ eyebrow, title, lead, character, children }: { eyeb
     <div className="relative">
       <div className="container-page relative grid items-end gap-4 pb-2 pt-10 md:grid-cols-[1fr_auto] md:pt-14">
         <div className="animate-rise pb-4">
-          {character ? <Character id={character} height={118} priority className="mb-3 md:hidden" /> : null}
+          {character ? <Character id={character} height={118} priority animation="greeting" className="mb-3 md:hidden" /> : null}
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl">{title}</h1>
           {lead ? <p className="mt-4 max-w-xl text-lg text-ink-soft">{lead}</p> : null}
@@ -16,7 +16,7 @@ export function SimpleHero({ eyebrow, title, lead, character, children }: { eyeb
         </div>
         {character ? (
           <div className="relative z-10 hidden md:block">
-            <Character id={character} height={230} priority float={character === "zizou"} />
+            <Character id={character} height={230} priority animation="greeting" float={character === "zizou"} />
           </div>
         ) : null}
       </div>
