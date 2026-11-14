@@ -28,7 +28,7 @@ export function SectionIcon({ id, size = 96, className }: { id: SectionId; size?
         <rect x="6" y="6" width="84" height="80" rx="27" fill={c.main} />
         <path d="M15 31C17 19 26 13 38 12" fill="none" stroke="#fff" strokeOpacity="0.35" strokeWidth="4.5" strokeLinecap="round" />
       </svg>
-      <span className="absolute inset-x-[11%] top-[8%] aspect-square">
+      <span className="absolute inset-x-[22%] top-[19%] aspect-square">
         <LordIcon src={animatedIcons[id]} color={c.line} size="100%" />
       </span>
     </span>
