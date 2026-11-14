@@ -36,9 +36,14 @@ python3 scripts/process-assets.py
 |---|---|---|
 | القصص | `stories.json` | Book (book-bookmark) |
 | التعلّم | `learn.json` | Ebook Reader |
+| السور | `surahs.json` | Moon Stars |
+| الألعاب | `games.json` | Joystick |
+| الرسم | `art.json` | Image Mountain |
+| زيزو | `ai.json` | Shooting Stars |
+| القيم | `values.json` | Growing Plant |
 | المسابقات | `competitions.json` | Alarm |
 
-بقية الأقسام (السور، الألعاب، الرسم، زيزو، القيم) تعرض أيقونتها المتجهة الثابتة إلى أن تُضاف ملفاتها؛ الخريطة في `src/data/animated-icons.ts`. مفتاح الـ API المتاح لا يفتح سوى ثلاث أيقونات غير مناسبة، والتنزيل من الموقع يتطلب حسابًا.
+الخريطة في `src/data/animated-icons.ts`، وألوان البلاطات والخط في `src/components/brand/SectionIcon.tsx`.
 
 ## الجدول التفصيلي
 
