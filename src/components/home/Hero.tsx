@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { Character } from "@/components/brand/Character";
-import { Sparkle, SpeechBubble } from "@/components/brand/Decor";
+import { Sparkle } from "@/components/brand/Decor";
 import { Button } from "@/components/ui/Button";
 import { Glyph } from "@/components/ui/Glyph";
 import type { CharacterId } from "@/lib/brand-assets";
@@ -38,7 +38,7 @@ export function Hero() {
       <div className="container-page relative pt-10 text-center sm:pt-14 lg:pt-16">
         <p className="mb-5 inline-flex animate-rise items-center gap-2 rounded-full bg-white/12 px-4 py-2 font-display text-sm font-bold ring-1 ring-white/25">
           <Sparkle size={16} className="text-saffron" />
-          منصة تعليمية ترفيهية للأطفال
+          مبادرة وطنية برعاية الجمعية الأهلية الصالحية بعنيزة
         </p>
         <h1 className="animate-rise text-[2.75rem] leading-[1.15] font-extrabold [animation-delay:80ms] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
           عالم صغير…{" "}
@@ -53,7 +53,7 @@ export function Hero() {
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl animate-rise text-xl font-bold text-ink-soft [animation-delay:160ms] lg:text-2xl">
-          مع جمّول، كل يوم حكاية جديدة، ولعبة ممتعة، واكتشاف ينتظرك.
+          حكايات وألعاب واكتشافات تنتظرك.
         </p>
         <div className="mt-8 flex animate-rise flex-wrap justify-center gap-4 [animation-delay:240ms]">
           <Button href="/explore" size="lg" className="lg:min-h-16 lg:px-10 lg:text-xl">
@@ -74,9 +74,6 @@ export function Hero() {
           <Friend id="noor" delay={0.8} className="right-[9%] z-30 h-[29%] sm:right-[16%] sm:h-[38%] lg:right-[14%] lg:z-10 lg:h-[50%]" />
           <Friend id="zizou" float delay={0} className="bottom-[42%]! right-[-2%] h-[28%] sm:right-[3%] sm:h-[34%] lg:bottom-[34%]! lg:right-[0%] lg:h-[38%]" />
           <Friend id="jamool" delay={0} className="left-1/2 z-20 h-full -translate-x-1/2" />
-          <div className="absolute left-[2%] top-[2%] z-30 animate-pop [animation-delay:900ms] sm:left-[16%] lg:left-[27%] lg:top-[6%]">
-            <SpeechBubble>أهلًا يا صديقي!</SpeechBubble>
-          </div>
         </div>
       </div>
     </section>

@@ -53,7 +53,7 @@ export function SiteFooter() {
         <SaduBand height={20} />
         <div className="container-page flex flex-col gap-1 py-5 text-sm text-cream/80 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            منصة تابعة لـ{owner.name}، {owner.place}.
+            جمّول مبادرة وطنية برعاية {owner.name}، {owner.place}.
           </p>
           <p>
             © {new Date().getFullYear()} جمّول. جميع الحقوق محفوظة. الأيقونات المتحركة من{" "}
