@@ -1,0 +1,137 @@
+{
+  "logo": {
+    "src": "/assets/brand/jamool-logo.webp",
+    "width": 640,
+    "height": 599
+  },
+  "jamool": {
+    "src": "/assets/characters/jamool.webp",
+    "width": 607,
+    "height": 960
+  },
+  "jamoolAlt": {
+    "src": "/assets/characters/jamool-alt.webp",
+    "width": 583,
+    "height": 960
+  },
+  "thaloob": {
+    "src": "/assets/characters/thaloob.webp",
+    "width": 681,
+    "height": 960
+  },
+  "zizou": {
+    "src": "/assets/characters/zizou.webp",
+    "width": 779,
+    "height": 960
+  },
+  "noor": {
+    "src": "/assets/characters/noor.webp",
+    "width": 840,
+    "height": 960
+  },
+  "maha": {
+    "src": "/assets/characters/maha.webp",
+    "width": 500,
+    "height": 960
+  },
+  "zizouStar": {
+    "src": "/assets/characters/zizou-star.webp",
+    "width": 567,
+    "height": 640
+  },
+  "storiesIconOriginal": {
+    "src": "/assets/icons/original/stories.webp",
+    "width": 512,
+    "height": 453
+  },
+  "storiesIcon": {
+    "src": "/assets/icons/stories.webp",
+    "width": 512,
+    "height": 453
+  },
+  "learnIconOriginal": {
+    "src": "/assets/icons/original/learn.webp",
+    "width": 498,
+    "height": 512
+  },
+  "learnIcon": {
+    "src": "/assets/icons/learn.webp",
+    "width": 498,
+    "height": 512
+  },
+  "surahsIconOriginal": {
+    "src": "/assets/icons/original/surahs.webp",
+    "width": 512,
+    "height": 401
+  },
+  "surahsIcon": {
+    "src": "/assets/icons/surahs.webp",
+    "width": 512,
+    "height": 401
+  },
+  "gamesIconOriginal": {
+    "src": "/assets/icons/original/games.webp",
+    "width": 512,
+    "height": 368
+  },
+  "gamesIcon": {
+    "src": "/assets/icons/games.webp",
+    "width": 512,
+    "height": 368
+  },
+  "artIconOriginal": {
+    "src": "/assets/icons/original/art.webp",
+    "width": 512,
+    "height": 507
+  },
+  "artIcon": {
+    "src": "/assets/icons/art.webp",
+    "width": 512,
+    "height": 507
+  },
+  "valuesIconOriginal": {
+    "src": "/assets/icons/original/values.webp",
+    "width": 439,
+    "height": 512
+  },
+  "valuesIcon": {
+    "src": "/assets/icons/values.webp",
+    "width": 439,
+    "height": 512
+  },
+  "competitionsIconOriginal": {
+    "src": "/assets/icons/original/competitions.webp",
+    "width": 512,
+    "height": 481
+  },
+  "competitionsIcon": {
+    "src": "/assets/icons/competitions.webp",
+    "width": 512,
+    "height": 481
+  },
+  "mediaIconOriginal": {
+    "src": "/assets/icons/original/media.webp",
+    "width": 512,
+    "height": 477
+  },
+  "mediaIcon": {
+    "src": "/assets/icons/media.webp",
+    "width": 512,
+    "height": 477
+  },
+  "friendsGroup": {
+    "src": "/assets/illustrations/friends-group.webp",
+    "width": 1200,
+    "height": 848
+  },
+  "friendsLineup": {
+    "src": "/assets/illustrations/friends-lineup.webp",
+    "width": 1600,
+    "height": 529
+  },
+  "oasisScene": {
+    "src": "/assets/illustrations/oasis-scene.webp",
+    "width": 1672,
+    "height": 941
+  }
+}
