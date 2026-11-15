@@ -41,7 +41,7 @@ export function Hero() {
         <p className="mx-auto mt-6 max-w-xl animate-rise text-xl font-bold text-ink-soft [animation-delay:160ms] lg:text-2xl">
           حكايات وألعاب واكتشافات تنتظرك.
         </p>
-        <div className="mt-8 flex animate-rise flex-wrap justify-center gap-4 [animation-delay:240ms]">
+        <div className="relative z-10 mt-8 flex animate-rise flex-wrap justify-center gap-4 [animation-delay:240ms]">
           <Button href="/explore" size="lg" className="lg:min-h-16 lg:px-10 lg:text-xl">
             هيا نكتشف!
             <Glyph name="forward" size={22} />

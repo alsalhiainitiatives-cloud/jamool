@@ -28,10 +28,7 @@ export function HeroVideo({ className }: { className?: string }) {
     <div
       role="img"
       aria-label="جمّول يلوّح محاطًا بأصدقائه: مها وثعلوب ونور وزيزو"
-      className={cn(
-        "relative aspect-[1280/756] bg-cover bg-center [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_97%,transparent),linear-gradient(to_right,transparent,black_3%,black_97%,transparent)] [mask-composite:intersect]",
-        className,
-      )}
+      className={cn("relative aspect-[1280/756] bg-cover bg-center", className)}
       style={{ backgroundImage: `url(${POSTER})` }}
     >
       <link rel="preload" as="image" href={POSTER} fetchPriority="high" />
@@ -51,6 +48,11 @@ export function HeroVideo({ className }: { className?: string }) {
           <source src="/assets/video/hero-friends.mp4" type="video/mp4" />
         </video>
       ) : null}
+      {/* Soft edges painted in the page colour (no CSS mask: masks over video are fragile). */}
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[12%] bg-linear-to-b from-page to-transparent" />
+      <span aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-[3%] bg-linear-to-t from-page to-transparent" />
+      <span aria-hidden className="pointer-events-none absolute inset-y-0 left-0 w-[3%] bg-linear-to-r from-page to-transparent" />
+      <span aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-[3%] bg-linear-to-l from-page to-transparent" />
     </div>
   );
 }
